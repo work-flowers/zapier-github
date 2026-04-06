@@ -27,7 +27,10 @@ const authentication = {
 const addAuthHeaders = (request, z, bundle) => {
   request.headers.Authorization = `Bearer ${bundle.authData.api_key}`;
   request.headers['X-GitHub-Api-Version'] = bundle.authData.api_version;
-  request.headers.Accept = 'application/vnd.github+json';
+  // Only set default Accept if the request hasn't specified one
+  if (!request.headers.Accept) {
+    request.headers.Accept = 'application/vnd.github+json';
+  }
   return request;
 };
 

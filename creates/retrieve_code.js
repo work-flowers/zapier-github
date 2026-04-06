@@ -39,6 +39,7 @@ module.exports = {
         type: 'string',
         required: true,
         helpText: 'Name of the repository where the file is stored.',
+        dynamic: 'list_repos.id.name',
         altersDynamicFields: true,
       },
       {
@@ -48,6 +49,7 @@ module.exports = {
         required: false,
         helpText: 'Branch to retrieve the file from. Defaults to main.',
         dynamic: 'list_branches.id.name',
+        altersDynamicFields: true,
       },
       {
         key: 'ref',
@@ -63,6 +65,7 @@ module.exports = {
         type: 'string',
         required: true,
         helpText: 'Path to the file you want to retrieve, e.g., src/index.js',
+        dynamic: 'list_files.id.name',
       },
     ],
     sample: {
